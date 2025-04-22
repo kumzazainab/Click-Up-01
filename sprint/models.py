@@ -12,7 +12,7 @@ class SprintManagement(UUIDModel):
     title = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
     start_date = models.DateTimeField(default=timezone.now)
-    end_date = models.DateTimeField(null=True, blank=True)
+    end_date = models.DateTimeField(default=timezone.now)
     workspace = models.ForeignKey(Workspace, on_delete=models.CASCADE, related_name="workspaces", null=True, blank=True)
     folder = models.ForeignKey("sprint.Folder", related_name="sprints", on_delete=models.CASCADE, null=True, blank=True)
 
