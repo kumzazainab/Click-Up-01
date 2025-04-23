@@ -5,9 +5,10 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
-from todolist.models import Task, SubTask, TaskActivity, CommentAttachment, Comment
+from todolist.models import Task, SubTask, TaskActivity, CommentAttachment, Comment, TaskAttachment
 from todolist.serializers import SubTaskSerializer, TaskActivitySerializer, CommentAttachmentSerializer, \
-    CommentSerializer
+    CommentSerializer, TaskAttachmentSerializer
+from todolist.utils import extract_tagged_users
 
 
 class AdminTaskReportView(APIView):
@@ -54,8 +55,24 @@ class CommentViewSet(viewsets.ModelViewSet):
     authentication_classes = [JWTAuthentication]
     serializer_class = CommentSerializer
 
+    def perform_create(self, serializer):
+        comment = serializer.save(user=self.request.user)
+        tagged_users = extract_tagged_users(comment.subject)
+        comment.mentions.set(tagged_users)
+
+    def perform_update(self, serializer):
+        comment = serializer.save()
+        tagged_users = extract_tagged_users(comment.subject)
+        comment.mentions.set(tagged_users)
+
 class CommentAttachmentViewSet(viewsets.ModelViewSet):
     queryset = CommentAttachment.objects.all()
     permission_classes = [IsAuthenticated]
     authentication_classes = [JWTAuthentication]
     serializer_class = CommentAttachmentSerializer
+
+class TaskAttachmentViewSet(viewsets.ModelViewSet):
+    queryset = TaskAttachment.objects.all()
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+    serializer_class = TaskAttachmentSerializer

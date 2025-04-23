@@ -14,8 +14,14 @@ class SignupSerializer(serializers.ModelSerializer):
     password = serializers.CharField(style={'input_type': 'password'}, write_only=True)
     class Meta:
         model = User
-        fields = ['name', 'email', 'role', 'password']
+        fields = ['username', 'email', 'role', 'password']
 
+    def create(self, validated_data):
+        password = validated_data.pop('password')
+        user = User(**validated_data)
+        user.set_password(password)
+        user.save()
+        return user
 
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
@@ -24,13 +30,13 @@ class LoginSerializer(serializers.Serializer):
     def validate(self, data):
         user = authenticate(username=data['username'], password=data['password'])
         if not user:
-            raise serializers.ValidationError("Invalid name or password")
+            raise serializers.ValidationError("Invalid username or password")
         return {'user': user}
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'name', 'email', 'password', 'role']
+        fields = ['id', 'username', 'email', 'password', 'role']
 
     def create(self, validated_data):
         user = User(**validated_data)

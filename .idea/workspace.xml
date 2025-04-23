@@ -5,7 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="773fa8f9-bcae-42d2-8938-3b25b67ba3ee" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3c7f813-1d7b-4151-9fa9-fac20ddc65d1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject1/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject1/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile_pics/Screenshot_from_2025-04-18_10-24-59.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile_pics/Screenshot_from_2025-04-18_10-24-59_DaHKdoL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/migrations/0002_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint/migrations/0002_sprintmanagement_created_at.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint/migrations/0003_alter_sprintmanagement_start_date.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint/migrations/0004_folder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint/migrations/0005_sprintmanagement_folder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint/migrations/0006_sprintmanagement_workspace.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint/migrations/0007_alter_sprintmanagement_end_date.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/migrations/0002_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/migrations/0003_task_sprints_alter_task_status.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/migrations/0004_comment_task_end_date_task_start_date_taskactivity_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/migrations/0002_remove_profile_region_alter_profile_email_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/migrations/0003_profile_created_at_profile_updated_at.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/migrations/0004_remove_user_name.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workspace/migrations/0001_initial.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,29 +64,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Django Server.DjangoProject1.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/enigmatix/PycharmProjects/Click Up&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.inline.completion&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Django Server.DjangoProject1.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/enigmatix/PycharmProjects/Click Up",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.inline.completion",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="DjangoProject1" type="Python.DjangoServer" factoryName="Django server">
       <module name="DjangoProject1" />
@@ -111,7 +142,8 @@
       <workItem from="1745213092976" duration="5760000" />
       <workItem from="1745218895568" duration="3163000" />
       <workItem from="1745225961600" duration="15708000" />
-      <workItem from="1745298831996" duration="15564000" />
+      <workItem from="1745298831996" duration="21468000" />
+      <workItem from="1745386227526" duration="20069000" />
     </task>
     <servers />
   </component>

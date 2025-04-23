@@ -21,7 +21,7 @@ class Task(UUIDModel):
     end_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.title
+        return self.title if self.title else "Untitled Task"
 
 class SubTask(UUIDModel):
     task = models.ForeignKey(Task, related_name='subtasks', on_delete=models.CASCADE)
@@ -33,7 +33,7 @@ class SubTask(UUIDModel):
     end_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.title
+        return self.title if self.title else  "Untitled Task"
 
 class TaskActivity(models.Model):
     task = models.ForeignKey(Task, related_name='activities', on_delete=models.CASCADE)
@@ -43,6 +43,14 @@ class TaskActivity(models.Model):
 
     def __str__(self):
         return f"{self.user} {self.action} {self.created_at}"
+
+class TaskAttachment(UUIDModel):
+    task = models.ForeignKey(Task, related_name='attachments', on_delete=models.CASCADE)
+    file = models.FileField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.file.name
 
 class Comment(UUIDModel):
     task = models.ForeignKey(Task, related_name='comments', on_delete=models.CASCADE)
@@ -55,10 +63,11 @@ class Comment(UUIDModel):
     def __str__(self):
         return f"Comment by {self.user} on {self.task}"
 
-class CommentAttachment(models.Model):
+class CommentAttachment(UUIDModel):
+    task = models.ForeignKey(Task, related_name='comment_attachments', on_delete=models.CASCADE)
     comment = models.ForeignKey(Comment, related_name='attachments', on_delete=models.CASCADE)
     file = models.FileField(upload_to='comment_attachments/')
-    uploaded_at = models.DateTimeField(auto_now_add=True)
+    uploaded_at = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.file.name

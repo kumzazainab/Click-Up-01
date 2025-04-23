@@ -29,6 +29,7 @@ urlpatterns = [
     path("api/", include("projects.urls")),
     path("api/", include("workspace.urls")),
     path("api/", include("sprint.urls")),
+    path("api/", include("home.urls")),
 ]
 
 if settings.DEBUG:
