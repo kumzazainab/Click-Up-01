@@ -3,6 +3,7 @@ from django.contrib.auth import get_user_model
 from datetime import timedelta
 from datetime import datetime
 
+from django.utils import timezone
 
 User = get_user_model()
 

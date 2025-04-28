@@ -1,4 +1,5 @@
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import APIView
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import status
@@ -6,6 +7,7 @@ from django.db.models import Q
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from todolist.models import Task
+from home.utils import get_greeting_message
 from workspace.models import Workspace
 from sprint.models import SprintManagement
 from user.models import User
@@ -13,6 +15,7 @@ from todolist.serializers import TaskSerializer
 from workspace.serializers import CreateWorkspaceSerializer
 from sprint.serializers import SprintSerializer
 from user.serializers import UserSerializer
+
 
 class SearchViewSet(ViewSet):
     permission_classes = [IsAuthenticated]
@@ -52,3 +55,13 @@ class SearchViewSet(ViewSet):
             "sprints": sprint_data,
             "users": user_data
         }, status=status.HTTP_200_OK)
+
+
+class GreetingAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+
+    def get(self, request):
+        user_name = request.user.first_name or request.user.username
+        message = get_greeting_message(user_name)
+        return Response({"greeting": message})

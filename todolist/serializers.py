@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from todolist.utils import parse_time_estimate
+from home.utils import parse_time_estimate
 from todolist.models import Task, TaskActivity, Comment, CommentAttachment, SubTask, TaskAttachment, TaskStatus, Tag
 
 

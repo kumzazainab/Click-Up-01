@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from todolist.views import StopTimerAPIView, GreetingAPIView
+from todolist.views import StopTimerAPIView
 from todolist.viewsets import SubTaskViewSet, TaskActivityViewSet, CommentViewSet, \
     CommentAttachmentViewSet, TaskAttachmentViewSet, TaskViewSet, TagViewSet, TaskStatusViewSet
 
@@ -20,5 +20,4 @@ router.register(r'task-attachment', TaskAttachmentViewSet, basename='task-attach
 urlpatterns = [
     path('', include(router.urls)),
     path('stop-timer/', StopTimerAPIView.as_view(), name='stop-timer'),
-    path('greeting/', GreetingAPIView.as_view(), name='greeting-api')
 ]

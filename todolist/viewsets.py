@@ -1,3 +1,6 @@
+from datetime import timedelta
+
+from django.utils import timezone
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework import status, viewsets
 from rest_framework.response import Response
@@ -6,7 +9,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from todolist.models import Task, SubTask, TaskActivity, CommentAttachment, Comment, TaskAttachment, Tag, TaskStatus
 from todolist.serializers import SubTaskSerializer, TaskActivitySerializer, CommentAttachmentSerializer, \
     CommentSerializer, TaskAttachmentSerializer, TaskSerializer, TagSerializer, TaskStatusSerializer
-from todolist.utils import extract_tagged_users
+from home.utils import extract_tagged_users
 
 
 class TaskViewSet(viewsets.ModelViewSet):
@@ -15,6 +18,23 @@ class TaskViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     authentication_classes = [JWTAuthentication]
 
+    def get_queryset(self):
+        task_param = self.request.query_params.get('task', None)
+
+        if task_param == 'home':
+            seven_days_ago = timezone.now() - timedelta(days=7)
+            return Task.objects.filter(created_at__gte=seven_days_ago)
+        else:
+            return Task.objects.all()
+
+    def get_queryset(self):
+        user = self.request.user
+        task_param = self.request.query_params.get('task', None)
+
+        if task_param == 'assigned_to_me':
+            return Task.objects.filter(assigned_to=user)
+        else:
+            return Task.objects.all()
 
 class TagViewSet(viewsets.ModelViewSet):
     queryset = Tag.objects.all()
