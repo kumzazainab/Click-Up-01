@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="773fa8f9-bcae-42d2-8938-3b25b67ba3ee" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/todolist/migrations/0003_taskview.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todolist/migrations/0004_delete_taskview.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DjangoProject1/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject1/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
@@ -12,7 +14,7 @@
       <change beforePath="$PROJECT_DIR$/todolist/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todolist/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todolist/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todolist/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todolist/viewsets.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/viewsets.py" afterDir="false" />
     </list>
@@ -135,7 +137,7 @@
       <workItem from="1745491968340" duration="7619000" />
       <workItem from="1745558724356" duration="22060000" />
       <workItem from="1745586102013" duration="2120000" />
-      <workItem from="1745818634675" duration="19057000" />
+      <workItem from="1745818634675" duration="19483000" />
     </task>
     <servers />
   </component>
