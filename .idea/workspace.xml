@@ -5,37 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="773fa8f9-bcae-42d2-8938-3b25b67ba3ee" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e3c7f813-1d7b-4151-9fa9-fac20ddc65d1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af259e-ffa3-4097-9cff-d8bf22f0971f.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af259e-ffa3-4097-9cff-d8bf22f0971f/storage_v2/_src_/database/task_db_1.Kh_BCg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af259e-ffa3-4097-9cff-d8bf22f0971f/storage_v2/_src_/database/task_db_1.Kh_BCg/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af259e-ffa3-4097-9cff-d8bf22f0971f/storage_v2/_src_/database/task_db_1.Kh_BCg/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/81af259e-ffa3-4097-9cff-d8bf22f0971f/storage_v2/_src_/database/task_db_1.Kh_BCg/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e175b8f6-079d-4de0-b415-1e35ac5bf056.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e175b8f6-079d-4de0-b415-1e35ac5bf056/storage_v2/_src_/database/task_db_01.KMZiTQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e175b8f6-079d-4de0-b415-1e35ac5bf056/storage_v2/_src_/database/task_db_01.KMZiTQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e175b8f6-079d-4de0-b415-1e35ac5bf056/storage_v2/_src_/database/task_db_01.KMZiTQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e175b8f6-079d-4de0-b415-1e35ac5bf056/storage_v2/_src_/database/task_db_01.KMZiTQ/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DjangoProject1/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject1/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile_pics/Screenshot_from_2025-04-18_10-24-59.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile_pics/Screenshot_from_2025-04-18_10-24-59_DaHKdoL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject1/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject1/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/migrations/0001_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/migrations/0002_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sprint/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprint/migrations/0002_sprintmanagement_created_at.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprint/migrations/0003_alter_sprintmanagement_start_date.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprint/migrations/0004_folder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprint/migrations/0005_sprintmanagement_folder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprint/migrations/0006_sprintmanagement_workspace.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprint/migrations/0007_alter_sprintmanagement_end_date.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint/migrations/0002_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sprint/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/sprint/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sprint/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sprint/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todolist/migrations/0001_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/todolist/migrations/0002_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist/migrations/0003_task_sprints_alter_task_status.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/todolist/migrations/0004_comment_task_end_date_task_start_date_taskactivity_and_more.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/todolist/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todolist/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todolist/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todolist/utils.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/todolist/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todolist/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/migrations/0002_remove_profile_region_alter_profile_email_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/migrations/0003_profile_created_at_profile_updated_at.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/migrations/0004_remove_user_name.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/migrations/0002_profile_user.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/workspace/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workspace/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/workspace/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workspace/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/workspace/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workspace/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/workspace/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +68,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HttpClientEndpointsTabState">
+    <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;e57fd8ad4c86a9f8cad9b610b0d34242d9ad4153&quot; value=&quot;###&amp;#10;GET http://localhost:8000/api/tasks&quot; /&gt;&#10;  &lt;entry key=&quot;e78cf2a81e6c6f26d5655b2d100f6b69f6fe6832&quot; value=&quot;###&amp;#10;GET http://localhost:8000/api/tasks&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -64,30 +80,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Django Server.DjangoProject1.executor": "Debug",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/enigmatix/PycharmProjects/Click Up",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.inline.completion",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Django Server.DjangoProject1.executor&quot;: &quot;Debug&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/enigmatix/PycharmProjects/Click Up&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/home" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="DjangoProject1" type="Python.DjangoServer" factoryName="Django server">
       <module name="DjangoProject1" />
@@ -143,7 +164,12 @@
       <workItem from="1745218895568" duration="3163000" />
       <workItem from="1745225961600" duration="15708000" />
       <workItem from="1745298831996" duration="21468000" />
-      <workItem from="1745386227526" duration="20069000" />
+      <workItem from="1745386227526" duration="20349000" />
+      <workItem from="1745472970546" duration="12278000" />
+      <workItem from="1745491968340" duration="7619000" />
+      <workItem from="1745558724356" duration="22060000" />
+      <workItem from="1745586102013" duration="2120000" />
+      <workItem from="1745818634675" duration="5464000" />
     </task>
     <servers />
   </component>

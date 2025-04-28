@@ -1,10 +1,44 @@
 import re
 from django.contrib.auth import get_user_model
+from datetime import timedelta
+from datetime import datetime
+
 
 User = get_user_model()
+
 
 def extract_tagged_users(comment_text):
     tagged_usernames = re.findall(r"@(\w+)", comment_text)
     if not tagged_usernames:
-        return User.objects.none()  # Empty queryset to avoid errors
+        return User.objects.none()
     return User.objects.filter(username__in=tagged_usernames)
+
+
+def parse_time_estimate(time_str):
+    total_minutes = 0
+    matches = re.findall(r'(\d+)\s*(d|h|m)', time_str.lower())
+    for value, unit in matches:
+        value = int(value)
+        if unit == 'd':
+            total_minutes += value * 1440
+        elif unit == 'h':
+            total_minutes += value * 60
+        elif unit == 'm':
+            total_minutes += value
+    return timedelta(minutes=total_minutes)
+
+
+def get_greeting_message(user_name):
+    current_hour = datetime.now().hour
+
+    if 5 <= current_hour < 12:
+        greeting = "Good Morning"
+    elif 12 <= current_hour < 17:
+        greeting = "Good Afternoon"
+    elif 17 <= current_hour < 21:
+        greeting = "Good Evening"
+    else:
+        greeting = "Good Night"
+
+    return f"{greeting}, {user_name.capitalize()}"
+

@@ -15,6 +15,8 @@ from pathlib import Path
 
 from drf_spectacular.contrib import rest_auth
 
+from DjangoProject1.celery import app
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -48,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_otp.plugins.otp_static',
     'django_otp.plugins.otp_totp',
+    'django_celery_beat',
     'todolist',
     'user',
     'sprint',
@@ -190,3 +193,20 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 AUTH_USER_MODEL = 'user.User'
+
+
+# Celery Settings
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_ACCEPT_CONTENT = ["json"]
+CELERY_TASK_SERIALIZER = "json"
+
+
+from celery.schedules import crontab
+
+app.conf.beat_schedule = {
+    'auto-stop-running-timers-every-5-mins': {
+        'task': 'tasks.tasks.stop_running_timers',
+        'schedule': crontab(minute='*/5'),  # every 5 minutes
+    },
+}

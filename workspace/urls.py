@@ -1,5 +1,5 @@
 from rest_framework.routers import DefaultRouter
-from workspace.views import WorkspaceViewSet, WorkspaceInvitationViewSet
+from workspace.viewsets import WorkspaceViewSet, WorkspaceInvitationViewSet
 from django.urls import path, include
 
 router = DefaultRouter()

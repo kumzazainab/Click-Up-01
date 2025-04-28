@@ -4,9 +4,9 @@ from user.utils import STATUS_CHOICES
 import uuid
 from user.models import User
 
+
 # Create your models here.
 class Project(UUIDModel):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
     members = models.ManyToManyField(User, related_name='projects', blank=True)

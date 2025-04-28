@@ -4,17 +4,8 @@ ROLE_CHOICES = (
     ('admin', 'Admin'),
     ('project manager', 'Project Manager'),
     ('employee', 'Employee'),
-)
-
-
-STATUS = (
-    ('todo', 'To Do'),
-    ('in_progress', 'In Progress'),
-    ('in_review', 'In Review'),
-    ('need_to_discuss', 'Need to Discuss'),
-    ('reopen', 'Reopen'),
-    ('waiting_to_be_merged', 'Waiting to be Merged'),
-    ('complete', 'Complete'),
+    ('quality assurance engineer', 'QA Engineer'),
+    ('tester', 'Tester'),
 )
 
 STATUS_CHOICES = (
@@ -128,3 +119,10 @@ RESOURCE_CHOICES = (
     ('search engines(google, bing)', 'Search Engines (Google, bing)'),
     ('others', 'Others'),
 )
+
+TICKET_PRIORITY = [
+        ('urgent', 'Urgent'),
+        ('high', 'High'),
+        ('normal', 'Normal'),
+        ('low', 'Low'),
+]

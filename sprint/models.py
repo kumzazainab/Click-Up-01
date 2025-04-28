@@ -8,7 +8,6 @@ from workspace.models import Workspace
 
 # Create your models here.
 class SprintManagement(UUIDModel):
-    id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
     start_date = models.DateTimeField(default=timezone.now)
@@ -18,6 +17,7 @@ class SprintManagement(UUIDModel):
 
     def __str__(self):
         return self.title
+
 
 class Folder(UUIDModel):
     name = models.CharField(max_length=255)

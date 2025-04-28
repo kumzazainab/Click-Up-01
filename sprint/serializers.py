@@ -9,10 +9,6 @@ class SprintSerializer(serializers.ModelSerializer):
         model = SprintManagement
         fields = '__all__'
 
-class TaskSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Task
-        fields = '__all__'
 
 class SharedFolderSerializer(serializers.ModelSerializer):
     class Meta:

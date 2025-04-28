@@ -9,6 +9,7 @@ class CreateWorkspaceSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class WorkSpaceInvitationSerializer(serializers.ModelSerializer):
+    invitations = serializers.ListField(child=serializers.EmailField(), required=False, allow_empty=True)
     class Meta:
         model = WorkspaceInvitation
         fields = '__all__'

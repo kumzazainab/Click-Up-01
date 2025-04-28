@@ -1,78 +1,28 @@
-from django.db.models import Count
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
-from rest_framework import status, viewsets
+from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
-from todolist.models import Task, SubTask, TaskActivity, CommentAttachment, Comment, TaskAttachment
-from todolist.serializers import SubTaskSerializer, TaskActivitySerializer, CommentAttachmentSerializer, \
-    CommentSerializer, TaskAttachmentSerializer
-from todolist.utils import extract_tagged_users
+from home.permissions import IsAdminOrProjectManager
+from todolist.task import stop_timer
+from todolist.utils import get_greeting_message
 
 
-class AdminTaskReportView(APIView):
-    permission_classes = [IsAuthenticated, IsAdminUser]
+class StopTimerAPIView(APIView):
+    permission_classes = [IsAuthenticated, IsAdminOrProjectManager]
     authentication_classes = [JWTAuthentication]
 
-    def get(self, request, *args, **kwargs):
-        total_tasks = Task.objects.count()
-        completed_tasks = Task.objects.filter(status='done').count()
-        tasks_per_user = Task.objects.values('assigned_to__email').annotate(task_count=Count('assigned_to')).order_by('-task_count')
-        tasks_by_status = Task.objects.values('status').annotate(status_count=Count('status')).order_by('status')
+    def post(self, request):
+        stop_timer.delay()
+        return Response({"message": "Timer stop task triggered successfully!"}, status=status.HTTP_200_OK)
 
-        report_data = {
-            "total_tasks": total_tasks,
-            "completed_tasks": completed_tasks,
-            "tasks_per_user": tasks_per_user,
-            "tasks_by_status": tasks_by_status,
-        }
 
-        return Response(report_data, status=status.HTTP_200_OK)
-
-class SubTaskViewSet(viewsets.ModelViewSet):
-    queryset = SubTask.objects.all()
+class GreetingAPIView(APIView):
     permission_classes = [IsAuthenticated]
     authentication_classes = [JWTAuthentication]
-    serializer_class = SubTaskSerializer
 
-class TaskActivityViewSet(viewsets.ModelViewSet):
-    queryset = TaskActivity.objects.all()
-    permission_classes = [IsAuthenticated]
-    authentication_classes = [JWTAuthentication]
-    serializer_class = TaskActivitySerializer
-
-    def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-
-class CommentViewSet(viewsets.ModelViewSet):
-    queryset = Comment.objects.all()
-    permission_classes = [IsAuthenticated]
-    authentication_classes = [JWTAuthentication]
-    serializer_class = CommentSerializer
-
-    def perform_create(self, serializer):
-        comment = serializer.save(user=self.request.user)
-        tagged_users = extract_tagged_users(comment.subject)
-        comment.mentions.set(tagged_users)
-
-    def perform_update(self, serializer):
-        comment = serializer.save()
-        tagged_users = extract_tagged_users(comment.subject)
-        comment.mentions.set(tagged_users)
-
-class CommentAttachmentViewSet(viewsets.ModelViewSet):
-    queryset = CommentAttachment.objects.all()
-    permission_classes = [IsAuthenticated]
-    authentication_classes = [JWTAuthentication]
-    serializer_class = CommentAttachmentSerializer
-
-class TaskAttachmentViewSet(viewsets.ModelViewSet):
-    queryset = TaskAttachment.objects.all()
-    permission_classes = [IsAuthenticated]
-    authentication_classes = [JWTAuthentication]
-    serializer_class = TaskAttachmentSerializer
+    def get(self, request):
+        user_name = request.user.first_name or request.user.username
+        message = get_greeting_message(user_name)
+        return Response({"greeting": message})

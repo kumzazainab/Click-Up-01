@@ -10,17 +10,14 @@ from user.utils import ROLE_CHOICES, APPEARANCE_CHOICES, LanguageSelector, THEME
 class User(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     email = models.EmailField(unique=True, null=True, blank=True)
-    role = models.CharField(max_length=20, choices=ROLE_CHOICES)
+    role = models.CharField(max_length=200, choices=ROLE_CHOICES)
     password = models.CharField(max_length=128)
-
-    # REQUIRED_FIELDS = ['name']
 
     def __str__(self):
         return self.email
 
 
 class Profile(UUIDModel):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
