@@ -15,6 +15,7 @@ class SprintViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated, IsAdminOrProjectManager]
     authentication_classes = [JWTAuthentication]
 
+
 class SharedFolderViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     authentication_classes = [JWTAuthentication]

@@ -29,7 +29,7 @@ class Task(UUIDModel):
     title = models.CharField(max_length=100)
     description = models.TextField()
     assigned_to = models.ForeignKey(User, related_name='assigned_to', on_delete=models.CASCADE)
-    sprints = models.ForeignKey(SprintManagement, related_name='sprints', on_delete=models.CASCADE, null=True, blank=True)
+    sprints = models.ForeignKey(SprintManagement, related_name='tasks', on_delete=models.CASCADE, null=True, blank=True)
     status = models.ForeignKey(TaskStatus, on_delete=models.SET_NULL, null=True, blank=True)
     start_date = models.DateTimeField(default=timezone.now)
     end_date = models.DateTimeField(default=timezone.now)
@@ -38,6 +38,7 @@ class Task(UUIDModel):
     priority = models.CharField(max_length=10, choices=TICKET_PRIORITY, default='normal')
     track_time = models.DurationField(default=timezone.timedelta())
     watchers = models.ManyToManyField(User, related_name='watched_tasks', blank=True)
+    is_completed = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title if self.title else "Untitled Task"

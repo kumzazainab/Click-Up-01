@@ -1,7 +1,8 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from todolist.views import StopTimerAPIView
+from todolist.views import StopTimerAPIView, MoveTaskAPIView, TaskListView, TaskTableView, TaskBoardView, \
+    UnfinishedTasksView
 from todolist.viewsets import SubTaskViewSet, TaskActivityViewSet, CommentViewSet, \
     CommentAttachmentViewSet, TaskAttachmentViewSet, TaskViewSet, TagViewSet, TaskStatusViewSet
 
@@ -20,4 +21,10 @@ router.register(r'task-attachment', TaskAttachmentViewSet, basename='task-attach
 urlpatterns = [
     path('', include(router.urls)),
     path('stop-timer/', StopTimerAPIView.as_view(), name='stop-timer'),
+    path('move-task/<uuid:task_id>/', MoveTaskAPIView.as_view(), name='move-task' ),
+    path("list/<uuid:sprint_id>/", TaskListView.as_view(), name="task-list"),
+    path("table/<uuid:sprint_id>/", TaskTableView.as_view(), name="task-table"),
+    path("board/<uuid:sprint_id>/", TaskBoardView.as_view(), name="task-board"),
+    path('unfinished/<uuid:sprint_id>/', UnfinishedTasksView.as_view(), name='unfinished_tasks'),
+
 ]

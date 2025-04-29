@@ -6,6 +6,7 @@ from rest_framework import status, viewsets
 from rest_framework.response import Response
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
+from home.permissions import IsAdminOrProjectManager
 from todolist.models import Task, SubTask, TaskActivity, CommentAttachment, Comment, TaskAttachment, Tag, TaskStatus
 from todolist.serializers import SubTaskSerializer, TaskActivitySerializer, CommentAttachmentSerializer, \
     CommentSerializer, TaskAttachmentSerializer, TaskSerializer, TagSerializer, TaskStatusSerializer
@@ -36,10 +37,11 @@ class TaskViewSet(viewsets.ModelViewSet):
         else:
             return Task.objects.all()
 
+
 class TagViewSet(viewsets.ModelViewSet):
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsAdminOrProjectManager]
     authentication_classes = [JWTAuthentication]
 
 

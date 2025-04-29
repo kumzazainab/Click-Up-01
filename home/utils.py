@@ -2,7 +2,8 @@ import re
 from django.contrib.auth import get_user_model
 from datetime import timedelta
 from datetime import datetime
-
+from todolist.models import Task
+from rest_framework.reverse import reverse
 from django.utils import timezone
 
 User = get_user_model()
@@ -43,3 +44,18 @@ def get_greeting_message(user_name):
 
     return f"{greeting}, {user_name.capitalize()}"
 
+
+def unfinished_task(sprint_id, request):
+    unfinished_tasks = Task.objects.filter(sprints__id=sprint_id, is_completed=False)
+    count = unfinished_tasks.count()
+    message = (
+        f"This sprint has {count} unfinished tasks"
+        if count > 0 else
+        "This sprint has no unfinished tasks"
+    )
+    url = reverse('unfinished_tasks', args=[sprint_id], request=request)
+
+    return {
+        'unfinished_tasks_message': message,
+        'unfinished_tasks_link': url
+    }
