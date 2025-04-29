@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="773fa8f9-bcae-42d2-8938-3b25b67ba3ee" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/todolist/migrations/0005_task_is_completed_alter_task_sprints.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sprint/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/sprint/serializers.py" afterDir="false" />
@@ -135,7 +136,7 @@
       <workItem from="1745586102013" duration="2120000" />
       <workItem from="1745818634675" duration="20348000" />
       <workItem from="1745904469563" duration="2461000" />
-      <workItem from="1745907124328" duration="19848000" />
+      <workItem from="1745907124328" duration="20265000" />
     </task>
     <servers />
   </component>
