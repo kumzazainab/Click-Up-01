@@ -71,6 +71,7 @@ THIRD_PARTY_APPS = [
     'django_otp',
     'two_factor',
     'two_factor.plugins.phonenumber',
+    'django_filters',
 ]
 
 INTERNAL_IPS = [

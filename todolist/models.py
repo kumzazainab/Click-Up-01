@@ -38,7 +38,13 @@ class Task(UUIDModel):
     priority = models.CharField(max_length=10, choices=TICKET_PRIORITY, default='normal')
     track_time = models.DurationField(default=timezone.timedelta())
     watchers = models.ManyToManyField(User, related_name='watched_tasks', blank=True)
+    due_date = models.DateField(null=True, blank=True)
     is_completed = models.BooleanField(default=False)
+
+    def save(self, *args, **kwargs):
+        if self.status and getattr(self.status, 'name', '').lower() == "complete":
+            self.is_completed = True
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title if self.title else "Untitled Task"

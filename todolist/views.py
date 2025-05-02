@@ -3,6 +3,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.authentication import JWTAuthentication
+
+from sprint.filters import TaskFilter
 from todolist.models import Task, SprintManagement, TaskActivity
 from todolist.serializers import TaskSerializer
 from rest_framework.views import APIView
@@ -82,6 +84,9 @@ class TaskListView(APIView):
 
     def get(self, request, sprint_id):
         tasks = Task.objects.all().order_by('status')
+        # Filter handling
+        task_filter = TaskFilter(request.GET, queryset=tasks, request=request)
+        tasks = task_filter.qs
         grouped_tasks = {}
         for task in tasks:
             status_key = str(task.status)
@@ -104,7 +109,10 @@ class TaskTableView(APIView):
     authentication_classes = [JWTAuthentication]
 
     def get(self, request, sprint_id):
-        tasks = Task.objects.filter(sprints_id=sprint_id)
+        tasks = Task.objects.filter(sprint_id=sprint_id).order_by('status')
+        # Filter handling
+        task_filter = TaskFilter(request.GET, queryset=tasks, request=request)
+        tasks = task_filter.qs
         serializer = TaskSerializer(tasks, many=True)
         unfinished_tasks = unfinished_task(sprint_id, request)
         response_data = {
@@ -120,7 +128,9 @@ class TaskBoardView(APIView):
 
     def get(self, request, sprint_id):
         tasks = Task.objects.select_related('status', 'assigned_to').prefetch_related('tags', 'watchers', 'sprints').all()
-
+        # Filter handling
+        task_filter = TaskFilter(request.GET, queryset=tasks, request=request)
+        tasks = task_filter.qs
         grouped_tasks = {}
         for task in tasks:
             status_name = task.status.name if task.status else "No Status"
