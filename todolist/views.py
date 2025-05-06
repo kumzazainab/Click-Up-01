@@ -1,7 +1,4 @@
-from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
-from rest_framework.views import APIView
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from sprint.filters import TaskFilter
@@ -10,13 +7,16 @@ from todolist.serializers import TaskSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from home.utils import unfinished_task
 from rest_framework.reverse import reverse
 
 from rest_framework import status as drf_status
 from home.utils import unfinished_task
 from home.permissions import IsAdminOrProjectManager
 from todolist.task import stop_timer
+from django.core.mail import send_mail
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 class StopTimerAPIView(APIView):
     permission_classes = [IsAuthenticated, IsAdminOrProjectManager]
@@ -149,3 +149,25 @@ class TaskBoardView(APIView):
             'unfinished_tasks': unfinished_tasks
         }
         return Response(response_data, status=drf_status.HTTP_200_OK)
+
+
+@csrf_exempt
+def send_email(request):
+    if request.method != "POST":
+        return JsonResponse({"error": "Only POST method is allowed."}, status=405)
+
+    try:
+        data = json.loads(request.body)
+    except json.JSONDecodeError:
+        return JsonResponse({"error": "Invalid JSON."}, status=400)
+
+    subject = data.get('subject')
+    message = data.get('message')
+    from_email = data.get('from_email')
+    recipient_list = data.get('recipient_list', [])
+
+    if not all([subject, message, from_email, recipient_list]):
+        return JsonResponse({"error": "Missing required fields."}, status=400)
+
+    send_mail(subject, message, from_email, recipient_list)
+    return JsonResponse({"message": "Email sent successfully!"}, status=200)

@@ -85,8 +85,10 @@ class TaskAttachment(UUIDModel):
 class Comment(UUIDModel):
     task = models.ForeignKey(Task, related_name='comments', on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField()
     subject = models.TextField()
     is_email = models.BooleanField(default=False)
+    to_users = models.ManyToManyField(User, related_name="email_comment_recipients")
     mentions = models.ManyToManyField(User, related_name='mentioned_in_comments', blank=True)
     # created_at = models.DateTimeField(auto_now_add=True)
 

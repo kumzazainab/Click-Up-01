@@ -13,6 +13,8 @@ import os
 import environ
 from pathlib import Path
 
+from decouple import config
+
 from drf_spectacular.contrib import rest_auth
 
 from DjangoProject1.celery import app
@@ -58,7 +60,8 @@ INSTALLED_APPS = [
     'projects',
     'debug_toolbar',
     'twofactor',
-    'workspace'
+    'workspace',
+    'drf_yasg',
 ]
 
 THIRD_PARTY_APPS = [
@@ -180,17 +183,13 @@ REST_FRAMEWORK = {
     ),
 }
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-EMAIL_HOST = env.str("EMAIL_HOST", "smtp.sendgrid.net")
-EMAIL_HOST_USER = env.str("SENDGRID_USERNAME", "")
-EMAIL_HOST_PASSWORD = env.str("SENDGRID_PASSWORD", "")
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-
-DEFAULT_FROM_EMAIL = env.str(
-    "DEFAULT_FROM_EMAIL", "unew72853@gmail.com"
-)
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

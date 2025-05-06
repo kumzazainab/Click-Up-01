@@ -2,7 +2,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
 from todolist.views import StopTimerAPIView, MoveTaskAPIView, TaskListView, TaskTableView, TaskBoardView, \
-    UnfinishedTasksView
+    UnfinishedTasksView, send_email
 from todolist.viewsets import SubTaskViewSet, TaskActivityViewSet, CommentViewSet, \
     CommentAttachmentViewSet, TaskAttachmentViewSet, TaskViewSet, TagViewSet, TaskStatusViewSet
 
@@ -26,5 +26,5 @@ urlpatterns = [
     path("table/<uuid:sprint_id>/", TaskTableView.as_view(), name="task-table"),
     path("board/<uuid:sprint_id>/", TaskBoardView.as_view(), name="task-board"),
     path('unfinished/<uuid:sprint_id>/', UnfinishedTasksView.as_view(), name='unfinished_tasks'),
-
+    path('send-email/', send_email, name='send-email')
 ]
