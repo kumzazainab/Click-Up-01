@@ -79,3 +79,9 @@ class TaskAttachmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = TaskAttachment
         fields = '__all__'
+
+
+class TaskCalendarSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Task
+        fields = ['id', 'title', 'start_date', 'end_date', 'all_day', 'assigned_to', 'priority']

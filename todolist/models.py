@@ -39,6 +39,7 @@ class Task(UUIDModel):
     track_time = models.DurationField(default=timezone.timedelta())
     watchers = models.ManyToManyField(User, related_name='watched_tasks', blank=True)
     due_date = models.DateField(null=True, blank=True)
+    all_day = models.BooleanField(default=False)
     is_completed = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):

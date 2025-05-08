@@ -4,7 +4,7 @@ from rest_framework.routers import DefaultRouter
 from todolist.views import StopTimerAPIView, MoveTaskAPIView, TaskListView, TaskTableView, TaskBoardView, \
     UnfinishedTasksView, send_email
 from todolist.viewsets import SubTaskViewSet, TaskActivityViewSet, CommentViewSet, \
-    CommentAttachmentViewSet, TaskAttachmentViewSet, TaskViewSet, TagViewSet, TaskStatusViewSet
+    CommentAttachmentViewSet, TaskAttachmentViewSet, TaskViewSet, TagViewSet, TaskStatusViewSet, CalendarViewSet
 
 router = DefaultRouter()
 
@@ -17,6 +17,7 @@ router.register(r'task-activity', TaskActivityViewSet, basename='task-activity')
 router.register(r'add-comment', CommentViewSet, basename='add-comment')
 router.register(r'comment-attachment', CommentAttachmentViewSet, basename='comment-attachment')
 router.register(r'task-attachment', TaskAttachmentViewSet, basename='task-attachment')
+router.register('calendar', CalendarViewSet, basename='calendar')
 
 urlpatterns = [
     path('', include(router.urls)),

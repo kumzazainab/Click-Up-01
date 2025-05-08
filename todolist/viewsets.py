@@ -9,7 +9,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from home.permissions import IsAdminOrProjectManager
 from todolist.models import Task, SubTask, TaskActivity, CommentAttachment, Comment, TaskAttachment, Tag, TaskStatus
 from todolist.serializers import SubTaskSerializer, TaskActivitySerializer, CommentAttachmentSerializer, \
-    CommentSerializer, TaskAttachmentSerializer, TaskSerializer, TagSerializer, TaskStatusSerializer
+    CommentSerializer, TaskAttachmentSerializer, TaskSerializer, TagSerializer, TaskStatusSerializer, TaskCalendarSerializer
 from home.utils import extract_tagged_users
 
 
@@ -101,3 +101,18 @@ class TaskAttachmentViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     authentication_classes = [JWTAuthentication]
     serializer_class = TaskAttachmentSerializer
+
+
+class CalendarViewSet(viewsets.ModelViewSet):
+    serializer_class = TaskCalendarSerializer
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+
+    def get_queryset(self):
+        user = self.request.user
+        start = self.request.query_params.get('start')
+        end = self.request.query_params.get('end')
+        queryset = Task.objects.filter(assigned_to=user)
+        if start and end:
+            queryset = queryset.filter(start_date__gte=start, end_date__lte=end)
+        return queryset
